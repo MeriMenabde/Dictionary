@@ -1,0 +1,34 @@
+
+<main [ngClass]="theme">
+    <header>
+      <button class="theme-button" (click)="changeTheme()">
+        {{ themeButtonLabel }}
+      </button>
+    </header>
+    <div class="container">
+      <div class="content">
+        <app-input (sendRequest)="sendRequest($event)"></app-input>
+        <div class="info">
+          <h2 class="title">{{ word }}</h2>
+          <h3 class="definition" *ngIf="definition">
+           <div class="definitionb"> Definition : </div> {{ definition }}
+          </h3>
+          <h3 class="definition2" *ngIf="definition2">
+            {{ definition2 }}
+          </h3>
+          <h3 class="synonyms">
+            <div class="definitionb"> Synonyms: </div> 
+            <ul>
+              <li *ngFor="let synonym of synonyms">{{ synonym }}</li>
+            </ul>
+          </h3>
+          <h3 class="antonyms">
+            <div class="definitionb"> Antonyms: </div> 
+            <ul>
+              <li *ngFor="let antonym of antonyms">{{ antonym }}</li>
+            </ul>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </main>
